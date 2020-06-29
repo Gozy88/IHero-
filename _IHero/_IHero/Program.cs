@@ -6,31 +6,40 @@ using System.Threading.Tasks;
 
 namespace _IHero
 {
-
-    interface IHero
-    {
-        
-        int Id { get; set; }
-        string Herojus { get; set; }
-        int Levelis { get; set }
-
-    }
-    interface IVilain {
-        List<IHero> Data { get; }
-
-        string SukurtiHeroju(IHero duomuo);
-        void KeltiLeveli(int levelis);
-
-        void trintiHero();
-    }
-
-    class Herojus : IHero
+    internal class Herojus : IHero
     {
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Levelis { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         string IHero.Herojus { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
-    class Vilain : IVilain
+
+    public class Supermentas : IHero
+    {
+        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Herojus { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Levelis { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    }
+
+    public class Jokeris : IVilain
+    {
+        public List<IHero> Data => throw new NotImplementedException();
+
+        public void KeltiLeveli(int levelis)
+        {
+        }
+
+        public string SukurtiHeroju(IHero duomuo)
+        {
+            Supermentas supermentas = new Supermentas();
+            return supermentas.Herojus;
+        }
+
+        public void trintiHero()
+        {
+        }
+    }
+
+    internal class Vilain : IVilain
     {
         public List<IHero> Data => throw new NotImplementedException();
 
@@ -50,9 +59,9 @@ namespace _IHero
         }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
         }
     }
